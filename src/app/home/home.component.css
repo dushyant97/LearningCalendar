@@ -1,0 +1,50 @@
+*{
+	box-sizing:border-box;
+}
+
+#filename
+{
+    font-family: sans-serif;
+    padding-left:30px;
+}
+
+#uploadbtn,#submit
+{
+    padding:10px;
+    color:white;
+    background-color:#009578;
+    text-align: center;
+    border-radius:5px;
+    border:none;
+    cursor: pointer;
+    border:1px solid #000;
+    width:140px;
+    
+}
+
+#uploadbtn:hover,#submit:hover
+{
+	font-weight:bold;
+	background-color:#00b28f;
+}
+
+.content
+{
+	background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+	color: white;
+	font-weight: bold;
+	border: 3px solid #f1f1f1;
+    text-align: center;
+	border-radius : 20px;
+	padding-bottom:30px;
+    padding-top:15px;
+    margin-top: 150px;
+}
+
+.bg-img
+{
+    background: url("../../assets/images/news.jpg") no-repeat center;
+    background-size: cover;
+    height:612px;
+    overflow-x: hidden;
+}
