@@ -8,3 +8,6 @@ Dependencies:<br>
 2. Bootstrap V4 <br>
 3. JQuery <br>
 4. Angular V4 or above <br>
+
+Reference for SheetJS:<br>
+https://github.com/SheetJS/js-xlsx.git
