@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Dependencies:<br>
 
-1. SheetJS: https://www.npmjs.com/package/xlsx <br>
+1. SheetJS: https://www.npmjs.com/package/xlsx </t> https://github.com/dushyant97/js-xlsx <br>
 2. Bootstrap V4 <br>
 3. JQuery <br>
 4. Angular V4 or above <br>
