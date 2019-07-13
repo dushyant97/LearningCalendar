@@ -1,0 +1,37 @@
+.color-row
+{
+    background-color: rgb(255, 166, 0); 
+    min-height: 20px;
+}
+
+.calender
+{
+    background: url("../../assets/Images/calender-background.jpg") no-repeat;
+    background-size: cover;
+    width: auto;
+}
+
+.Info-bg
+{
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 10px; 
+    background-color: rgba(0, 0, 0,0.8);
+    border-radius: 7px;
+}
+
+.Info-text
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#logo
+{
+    height: 30px;
+    width : 190px;
+    float: right;
+    margin-right: 20px;
+}
