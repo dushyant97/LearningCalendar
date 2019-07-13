@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   fileSelected : File;
   content : string= "Choose a File";
-  obj : object;
+  excelJsonObj : Object;
 
   constructor(private service: DataService) { }
 
@@ -24,34 +24,34 @@ export class HomeComponent implements OnInit {
   {
     this.fileSelected = event.target.files[0];
     this.content = event.target.files[0].name;
-    this.read(this.fileSelected);
+    this.read();
   }
 
-   read(file)
+   read()
   {
     var reader = new FileReader();
-    let excelJsonObj =  [];
-    var a = JSON
-    reader.readAsArrayBuffer(file);
     
-    reader.onload = event=>{
+    reader.readAsArrayBuffer(this.fileSelected);
+    
+    reader.onload = (event)=>{
       var data = new Uint8Array(<ArrayBuffer>event.target['result']);
       var wb =  XLSX.read(data, {type: 'array'});
 
       //Iterating over the sheet names
-        wb.SheetNames.forEach( function(sheetName)
+        wb.SheetNames.forEach( function(sheetName: string | number)
       {
-        var rowObject =  XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
-        excelJsonObj = rowObject;
-        console.log("Inside loop",excelJsonObj);
+        //var rowObject =  XLSX.utils.sheet_to__object_array(wb.Sheets[sheetName]);
+        console.log("assigning value",  XLSX.utils.sheet_to_json(wb.Sheets[sheetName]));
+        this.excelJsonObj = XLSX.utils.sheet_to_json(wb.Sheets[sheetName]);
+        console.log("Inside loop",this.excelJsonObj);
       })
 
-      console.log("Inside function",excelJsonObj)
+      console.log("Inside function",this.excelJsonObj)
   }
-    console.log("Before return",excelJsonObj);
+    console.log("Before return",this.excelJsonObj);
 
   }
-  
+
 }
 
 //function
