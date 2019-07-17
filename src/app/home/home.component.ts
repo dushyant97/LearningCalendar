@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Promise, async } from 'q';
 import * as XLSX from 'xlsx/dist/xlsx.full.min.js';
 
 
@@ -23,11 +22,15 @@ export class HomeComponent implements OnInit {
   onFileSelected(event)
   {
     this.fileSelected = event.target.files[0];
+
+    //getting file name for display
     this.content = event.target.files[0].name;
+    
+    //calling the function to read excel file
     this.read();
   }
 
-   read()
+  read()
   {
     var reader = new FileReader();
     
@@ -36,58 +39,29 @@ export class HomeComponent implements OnInit {
     reader.onload = (event)=>{
       var data = new Uint8Array(<ArrayBuffer>event.target['result']);
       var wb =  XLSX.read(data, {type: 'array'});
-
+      var arr = new Array();
       //Iterating over the sheet names
-        wb.SheetNames.forEach( function(sheetName: string | number)
+      for(var i = 0; i != data.length; ++i) 
       {
-        //var rowObject =  XLSX.utils.sheet_to__object_array(wb.Sheets[sheetName]);
-        console.log("assigning value",  XLSX.utils.sheet_to_json(wb.Sheets[sheetName]));
-        this.excelJsonObj = XLSX.utils.sheet_to_json(wb.Sheets[sheetName]);
-        console.log("Inside loop",this.excelJsonObj);
-      })
+        arr[i] = String.fromCharCode(data[i]);
+      }
+        var bstr = arr.join("");
 
-      console.log("Inside function",this.excelJsonObj)
-  }
-    console.log("Before return",this.excelJsonObj);
+        //reading the excel sheets
+        var workbook = XLSX.read(bstr, {type:"binary"});
+        var first_sheet_name = workbook.SheetNames[0];
+        console.log('Inside' +" " +first_sheet_name);
+        
+        //getting the data from first sheet
+        var worksheet = workbook.Sheets[first_sheet_name];
+        //console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+        
+        this.excelJsonObj = XLSX.utils.sheet_to_json(worksheet,{raw:true});
 
+        //saving the data via setter and getter
+        this.service.set_storage(this.excelJsonObj);
+        console.log("this is before setter",this.excelJsonObj)
+    }
   }
 
 }
-
-//function
-/*  reader.onload = function(e)
-    {
-      //Creating a promise
-      var prom = Promise((resolve,reject)=>
-      {
-          try
-          {
-
-            var data = new Uint8Array(<ArrayBuffer>reader.result);
-            var wb = XLSX.read(data, {type: 'array'});
-
-            //Iterating over the sheet names
-            wb.SheetNames.forEach(function(sheetName)
-            {
-              var rowObject = XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
-              excelJsonObj = rowObject;
-            })
-
-            resolve(excelJsonObj);
-          }
-          catch(error)
-          {
-            reject(error);
-          }
-      });
-
-      //Handling the promise
-      prom
-      .then(excelJsonObj => {
-        console.log("Just before return",excelJsonObj);
-      })
-      .catch(error =>{
-        console.log(error + " is the error");
-      });
-    }
-  */

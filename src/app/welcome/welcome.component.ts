@@ -20,64 +20,26 @@ export class WelcomeComponent implements OnInit {
   open_nomination = [];
   digital = [];
   invitation = [];
-  excelJsonObject = [
-    {
-      "Content": "This is IOT",
-      "Duration": "3",
-      "Facilitator": "Dushyant",
-      "S.No.": "1",
-      "Site": "NOIDA",
-      "Title": "IOT",
-      "Date" : "7",
-      "Type": "Open Nomination Based"
-    },
-    {
-      "Content": "DB",
-      "Duration": "112",
-      "Facilitator": "Parth",
-      "S.No.": "2",
-      "Site": "NOIDA",
-      "Title": "DB",
-      "Date" : "19",
-      "Type": "Closed Nomination Based"
-    },
-    {
-      "Content": "SQL",
-      "Duration": "112132",
-      "Facilitator": "Rishabh",
-      "S.No.": "3",
-      "Site": "NOIDA",
-      "Title": "SQL",
-      "Date" : "10",
-      "Type": "Digital"
-    },
-    {
-      "Content": "OS",
-      "Duration": "132",
-      "Facilitator": "Shreyans",
-      "S.No.": "4",
-      "Site": "NOIDA",
-      "Title": "OS",
-      "Date" : "25",
-      "Type": "Invitation Based"
-    } 
-  ]
+  excelJsonObject : Object;
 
 
   constructor(private service : DataService) { }
 
   ngOnInit() {
 
+    this.excelJsonObject = this.service.get_storage();
+
     for(let item in this.excelJsonObject)
     {
       var data =  Object.values(this.excelJsonObject)[item];
       var type = data['Type'];
-
-      if(type == "Open Nomination Based")
+      console.log(type)
+      
+      if(type == "Open Nomination")
       {
         this.open_nomination.push(data);        
       }
-      else if(type == "Closed Nomination Based")
+      else if(type == "Closed Nomination")
       {
         this.closed_nomination.push(data);
       }
@@ -85,7 +47,7 @@ export class WelcomeComponent implements OnInit {
       {
         this.invitation.push(data);
       }
-      else if(type == "Invitation Based")
+      else if(type == "Invitation")
       {
         this.digital.push(data);
       }
@@ -107,7 +69,7 @@ export class WelcomeComponent implements OnInit {
     {
       this.condition_digital = true;
     }
-
+    
   }
 
   screenshot()
