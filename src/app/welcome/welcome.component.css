@@ -11,6 +11,14 @@
 .card-header
 {
     background-color: rgba(122, 155, 247, 0.89); 
+    height: 80px;
+}
+
+.card-heading
+{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 
 .card_img
@@ -38,7 +46,7 @@
     padding: 7px;
 }
 
-.capture
+#capture
 {
     text-align: center;
     margin-top: 10px;
@@ -47,10 +55,11 @@
     margin-left: 30%;
     font-size: 20px;
     border: none;
+    border-radius: 5rem;
     background-color: rgb(150, 61, 34);
 }
 
-.capture:hover
+#capture:hover
 {
     background-color: rgb(97, 39, 22);
     padding: 5px;
@@ -58,13 +67,12 @@
     outline: none;
 }
 
-.date
+.date-place
 {
     background-color: rgb(241, 79, 30);
     color: white;
     border-radius: 5rem;
     text-align: center;
-    transform: translateY(10)
 }
 
 .contents
@@ -87,12 +95,46 @@
     background-color: rgba(55, 103, 236, 0.89); 
 }
 
-.place
+.time
+{
+    text-align: center;
+    color: white;
+}
+
+.link
 {
     border-radius: 3rem;
+    width: 180px;
     background-color: rgb(238,48,48);
     outline: none;
     border: none;
     color: white;
-    margin-left: 70px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.link:hover
+{
+    background-color: rgb(250, 14, 14);
+    font-weight: 500;
+}
+
+.error
+{
+    text-align: center;
+    font-size: 30px;
+}
+
+#redirect
+{
+    text-decoration: none;
+    color: rgb(65, 212, 65);
+    font-weight: 500;
+}
+
+#redirect:hover
+{
+    font-weight: 700;
+    font-size: 32px;
+    color: rgb(0, 155, 0)
 }

@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
     //getting file name for display
     this.content = event.target.files[0].name;
+    document.getElementById("filename").style.color="rgb(137, 243, 95)";
     
     //calling the function to read excel file
     this.read();

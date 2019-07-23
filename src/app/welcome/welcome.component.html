@@ -1,240 +1,301 @@
 <app-header></app-header>
 
-<div class="row" *ngIf = "condition_open">
-  <div class="col" style="background-color: #f1f1f1;">
-    <div class="row ">
-      <div class="col type">
-          Open Nomination Based
-      </div>
-    </div>
-    <div class="row">
-      <div class ="col-3" *ngFor="let item of open_nomination">
-          
-        <div class="card">
-        
-          <div class="card-header">
-            <div class="card-title">            
-        
-              <h4 style="text-align: center">{{item.Title}}</h4>
-              
-            </div>
-          </div>
-          
-          <div class = "card-body">
-            
-            <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-            <div class="row date">
-              <div class="col">
-               
-                Date: {{item.Date}}
-            
-              </div>
-            </div>
+<div *ngIf="condition_data" class="error">
 
-            <div class="contents">
-              {{item.Content}}
-            </div>
-            
-            <div class="facilitator">
-              Facilitator: {{item.Facilitator}}
-            </div>
+  <span style="color: red">Oops!</span> Cannot read data.<br>
+  Kindly <a id="redirect" href="/home">re-select</a> the file...<br>
 
-          </div>
-
-          <div class="card-footer foot">
-            Duration : {{item.Duration}} hrs
-
-            <button type="button" class="place">{{item.Site}}</button>
-
-          </div>
-        
-        </div>
-
-      </div>
-    </div>
-     
-  </div>
 </div>
 
-<!--TYPE-2-->
-
-<div class="row" *ngIf = "condition_close">
-  <div class="col" style="background-color: #f1f1f1;">
-    <div class="row ">
-      <div class="col type">
-          Closed Nomination Based
+<div *ngIf="!condition_data">
+  
+  <!--TYPE-1-->
+  <div class="row" *ngIf = "condition_open">
+    <div class="col" style="background-color: #f1f1f1;">
+      <div class="row ">
+        <div class="col type">
+            Open Nomination Based
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class ="col-3" *ngFor="let item of closed_nomination">
-          
-        <div class="card">
-        
-          <div class="card-header">
-            <div class="card-title">            
-        
-              <h4 style="text-align: center">{{item.Title}}</h4>
-              
-            </div>
-          </div>
-          
-          <div class = "card-body">
+      <div class="row">
+        <div class ="col-3" *ngFor="let item of open_nomination">
             
-            <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-            <div class="row date">
-              <div class="col">
-               
-                Date: {{item.Date}}
-            
+          <div class="card">
+          
+            <div class="card-header">
+              <div class="card-title">            
+          
+                <h4 class="card-heading">{{item['Training Title']}}</h4>
+                
               </div>
             </div>
-
-            <div class="contents">
-              {{item.Content}}
-            </div>
             
-            <div class="facilitator">
-              Facilitator: {{item.Facilitator}}
+            <div class = "card-body">
+              
+              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
+              <div class="row date-place">
+                <div class="col-5">
+                  Date: {{item.Date}} 
+                </div>
+                <div class="col-7">
+                    Location: {{item.Location}}
+                </div>
+              </div>
+  
+              <div class="contents">
+                {{item['Training Objective']}}
+              </div>
+              
+              <div class="facilitator">
+                Facilitator: {{item.Facilitator}}
+              </div>
+  
             </div>
-
+  
+            <div class="card-footer foot">
+                
+              <div class="row">
+                <div class="col time">
+                    Duration : {{item.Hours}} hrs
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                  <a href={{item.Link}}>
+                    <button type="button" class="link">Read More</button>
+                  </a>
+                </div>
+              </div>
+  
+            </div>
+          
           </div>
-
-          <div class="card-footer foot">
-            Duration : {{item.Duration}} hrs
-
-            <button type="button" class="place">{{item.Site}}</button>
-
-          </div>
-        
+  
         </div>
-
       </div>
+        
     </div>
+  </div>
       
-  </div>
-</div>
-
-<!-- Type-3 -->
-
-<div class="row" *ngIf = "condition_digital">
-  <div class="col" style="background-color: #f1f1f1;">
-    <div class="row ">
-      <div class="col type">
-          Digital
+  <!--TYPE-2-->
+  
+  <div class="row" *ngIf = "condition_close">
+    <div class="col" style="background-color: #f1f1f1;">
+      <div class="row ">
+        <div class="col type">
+            Closed Nomination Based
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class ="col-3" *ngFor="let item of digital">
-          
-        <div class="card">
-        
-          <div class="card-header">
-            <div class="card-title">            
-        
-              <h4 style="text-align: center">{{item.Title}}</h4>
-              
-            </div>
-          </div>
-          
-          <div class = "card-body">
+      <div class="row">
+        <div class ="col-3" *ngFor="let item of closed_nomination">
             
-            <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-            <div class="row date">
-              <div class="col">
-               
-                Date: {{item.Date}}
-            
+          <div class="card">
+          
+            <div class="card-header">
+              <div class="card-title">            
+          
+                <h4 class="card-heading">{{item['Training Title']}}</h4>
+                
               </div>
             </div>
-
-            <div class="contents">
-              {{item.Content}}
-            </div>
             
-            <div class="facilitator">
-              Facilitator: {{item.Facilitator}}
-            </div>
-
-          </div>
-
-          <div class="card-footer foot">
-            Duration : {{item.Duration}} hrs
-
-            <button type="button" class="place">{{item.Site}}</button>
-
-          </div>
-        
-        </div>
-
-      </div>
-    </div>
-      
-  </div>
-</div>
-
-<!-- Type-4 -->
-
-<div class="row" *ngIf = "condition_invitation">
-  <div class="col" style="background-color: #f1f1f1;">
-    <div class="row ">
-      <div class="col type">
-          Invitation Based
-      </div>
-    </div>
-    <div class="row">
-      <div class ="col-3" *ngFor="let item of invitation">
-          
-        <div class="card">
-        
-          <div class="card-header">
-            <div class="card-title">            
-        
-              <h4 style="text-align: center">{{item.Title}}</h4>
+            <div class = "card-body">
               
+              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
+              <div class="row date-place">
+                  <div class="col-5">
+                    Date: {{item.Date}} 
+                  </div>
+                  <div class="col-7">
+                      Location: {{item.Location}}
+                  </div>
+                </div>
+  
+              <div class="contents">
+                {{item['Training Objective']}}
+              </div>
+              
+              <div class="facilitator">
+                Facilitator: {{item.Facilitator}}
+              </div>
+  
             </div>
-          </div>
+  
+            <div class="card-footer foot">
+                
+                <div class="row">
+                  <div class="col time">
+                      Duration : {{item.Hours}} hrs
+                  </div>
+                </div>
+              
+              <div class="row">
+                <div class="col">
+                  <a href={{item.Link}}>
+                    <button type="button" class="link">Read More</button>
+                  </a>
+                </div>
+              </div>
+  
+            </div>
           
-          <div class = "card-body">
+          </div>
+  
+        </div>
+      </div>
+        
+    </div>
+  </div>
+  
+  <!-- Type-3 -->
+  
+  <div class="row" *ngIf = "condition_digital">
+    <div class="col" style="background-color: #f1f1f1;">
+      <div class="row ">
+        <div class="col type">
+            Digital
+        </div>
+      </div>
+      <div class="row">
+        <div class ="col-3" *ngFor="let item of digital">
             
-            <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-            <div class="row date">
-              <div class="col">
-               
-                Date: {{item.Date}}
-            
+          <div class="card">
+          
+            <div class="card-header">
+              <div class="card-title">            
+          
+                <h4 class="card-heading">{{item['Training Title']}}</h4>
+                
               </div>
             </div>
-
-            <div class="contents">
-              {{item.Content}}
+            
+            <div class = "card-body">
+              
+              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
+              <div class="row date-place">
+                  <div class="col-5">
+                    Date: {{item.Date}} 
+                  </div>
+                  <div class="col-7">
+                      Location: {{item.Location}}
+                  </div>
+                </div>
+  
+              <div class="contents">
+                {{item['Training Objective']}}
+              </div>
+              
+              <div class="facilitator">
+                Facilitator: {{item.Facilitator}}
+              </div>
+  
+            </div>
+  
+            <div class="card-footer foot">
+                
+              <div class="row">
+                <div class="col time">
+                    Duration : {{item.Hours}} hrs
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                  <a href={{item.Link}}>
+                    <button type="button" class="link">Read More</button>
+                  </a>
+                </div>
+              </div>
+  
+            </div>
+          
+          </div>
+  
+        </div>
+      </div>
+        
+    </div>
+  </div>
+  
+  <!-- Type-4 -->
+  
+  <div class="row" *ngIf = "condition_invitation">
+    <div class="col" style="background-color: #f1f1f1;">
+      <div class="row ">
+        <div class="col type">
+            Invitation Based
+        </div>
+      </div>
+      <div class="row">
+        <div class ="col-3" *ngFor="let item of invitation">
+            
+          <div class="card">
+          
+            <div class="card-header">
+              <div class="card-title">            
+          
+                <h4 class="card-heading">{{item['Training Title']}}</h4>
+                
+              </div>
             </div>
             
-            <div class="facilitator">
-              Facilitator: {{item.Facilitator}}
+            <div class = "card-body">
+              
+              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
+              <div class="row date-place">
+                  <div class="col-5">
+                    Date: {{item.Date}} 
+                  </div>
+                  <div class="col-7">
+                      Location: {{item.Location}}
+                  </div>
+                </div>
+  
+              <div class="contents">
+                {{item['Training Objective']}}
+              </div>
+              
+              <div class="facilitator">
+                Facilitator: {{item.Facilitator}}
+              </div>
+  
             </div>
+  
+            <div class="card-footer foot">
+              
+              <div class="row">
+                <div class="col time">
+                    Duration : {{item.Hours}} hrs
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                  <a href={{item.Link}}>
+                      <button type="button" class="link">Read More</button>
+                    </a>
+                </div>
+              </div>
 
+            </div>
+          
           </div>
-
-          <div class="card-footer foot">
-            Duration : {{item.Duration}} hrs
-
-            <button type="button" class="place">{{item.Site}}</button>
-
-          </div>
-        
+  
         </div>
-
       </div>
+        
     </div>
-      
   </div>
-</div>
+  
+  <div class="row" style="background-color: #f1f1f1;">
+    
+    <button type="button" id="capture" class="btn btn-primary btn-sm btn-block" (click)="screenshot()">
+      Take a Screenshot
+    </button>
 
-<div class="row" style="background-color: #f1f1f1;">
-  <button type="button" class="btn btn-primary btn-sm btn-block capture" (click)="screenshot()">
-    Take a Screenshot
-  </button>
-  <a id = "save_snippet"></a>
+  </div>
+
 </div>
 
 <app-footer></app-footer>

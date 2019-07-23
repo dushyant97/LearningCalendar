@@ -1,22 +1,54 @@
-<div class="bg-img">
-  <div class="row">
-    <div class="content col-xl-8 offset-xl-2 col-lg-8 offset-2">
-      <div class="row">
-        <div class="col-xl-8 offset-xl-2 col-lg-8 offset-2">
-          <h1>Learning Calendar</h1>
-          <br><br>
+<div class="row">
+
+  <div class="bg-img col">
+      
+    <div class="row">
+
+      <div class="content col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-8 offset-2 col-sm-10 offset-sm-2">
+
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2 col-lg-8 offset-2 col-8 offset-2">
+
+            <h1>Learning Calendar</h1>
+            <span style="font-weight:500; color: rgb(194, 189, 189)">Please Select any .XLXS or .XLS format file..</span>
+            <br><br>
+          </div>
         </div>
-      </div>
-      <form class="row" method="post" enctype="multipart/form-data">
-        <div class="col-xl-8 offset-xl-0 col-lg-8 offset-lg-0">
-            <input id="fileupload" type="file" (change)="onFileSelected($event)" hidden="hidden" #fileInput/> 
-            <button type="button" id="uploadbtn" (click)="fileInput.click()">Select File</button>
+
+        <form method="post" enctype="multipart/form-data">
+
+          <input id="fileupload" type="file" (change)="onFileSelected($event)" hidden="hidden" #fileInput/>
+          <div class="row">
+            <div class="col-xl-4 offset-xl-2 col-lg-4 offset-lg-2">
+            
+              <button type="button" id="uploadbtn" (click)="fileInput.click()">Select File</button>
+
+          </div>
+          <div class="col-xl-4 col-lg-4">
+
             <span id="filename">{{content}}</span>
+
+          </div>
         </div>
-        <div class="col-xl-3 col-lg-3">
-            <button type="button" id="submit" routerLink = '/welcome'> Submit </button>
+          
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2">
+
+                <button type="button" id="submit" routerLink = '/welcome'> Submit </button>            
+  
+            </div>
         </div>
-      </form>
+         
+        
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 offset-9 name">
+          Copyright © 2019, Sopra Steria
+      </div>
     </div>
   </div>
+
 </div>
