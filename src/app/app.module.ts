@@ -7,6 +7,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DataService } from './data.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    BsDatepickerModule.forRoot(),
     AppRoutingModule
   ],
   providers: [DataService],
