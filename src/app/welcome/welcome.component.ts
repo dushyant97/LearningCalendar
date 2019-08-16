@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DataService } from '../data.service';
-import html2canvas from 'html2canvas-master/dist/html2canvas.js';
+import html2canvas from 'html2canvas/dist/html2canvas.js';
 
 
 @Component({
@@ -28,10 +28,13 @@ export class WelcomeComponent implements OnInit {
   excelJsonObject : Object;
   window: any;
 
+  color_body:string="";
 
   constructor(private service : DataService) { }
 
   ngOnInit(){
+
+    this.color_body=this.service.get_color_body();
 
     this.excelJsonObject = this.service.get_storage();
     
@@ -79,13 +82,33 @@ export class WelcomeComponent implements OnInit {
     {
       this.condition_digital = true;
     }
-    
+
+  }
+
+  ngAfterViewInit()
+  {
+    if(this.condition_open)
+    { 
+      document.getElementById("color-type1").style.backgroundColor=this.color_body;
+    }
+    if(this.condition_close)
+    {
+      document.getElementById("color-type2").style.backgroundColor=this.color_body;
+    }
+    if(this.condition_digital)
+    {
+      document.getElementById("color-type3").style.backgroundColor=this.color_body;
+    }
+    if(this.condition_invitation)
+    {
+      document.getElementById("color-type4").style.backgroundColor=this.color_body;
+    }
   }
 
   screenshot()
-  {
+{
     document.getElementById("capture").style.display="none";
-    html2canvas(document.body).then(function(canvas) {
+    html2canvas(document.body, { logging: true, letterRendering: 1, useCORS: true }).then(function(canvas) {
       var a = document.createElement('a');
       a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg","image/octet-stream");
       var name = prompt("Enter the file name");

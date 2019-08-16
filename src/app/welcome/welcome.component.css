@@ -14,6 +14,11 @@
     height: 80px;
 }
 
+.foot
+{
+    background-color: rgba(55, 103, 236, 0.89); 
+}
+
 .card-heading
 {
     font-size: 20px;
@@ -28,7 +33,6 @@
 
 .type
 {
-    background-color: rgb(150, 61, 34);
     color: white;
     cursor: pointer;
     text-align: center;
@@ -41,7 +45,6 @@
   
 .type:hover
 {
-    background-color:  rgb(97, 39, 22);
     font-weight: 300;
     padding: 7px;
 }
@@ -67,7 +70,7 @@
     outline: none;
 }
 
-.date-place
+.date
 {
     background-color: rgb(241, 79, 30);
     color: white;
@@ -90,27 +93,20 @@
     margin-top: 5px;
 }
 
-.foot
-{
-    background-color: rgba(55, 103, 236, 0.89); 
-}
-
 .time
 {
     text-align: center;
     color: white;
 }
 
-.link
+.place,.link
 {
     border-radius: 3rem;
-    width: 60%;
+    width: auto;
     background-color: rgb(238,48,48);
     outline: none;
     border: none;
     color: white;
-    margin-top: 10px;
-    margin-left: 40px;
 }
 
 .link:hover

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import {Router} from '@angular/router';
 import * as XLSX from 'xlsx/dist/xlsx.full.min.js';
 
 
@@ -13,8 +14,9 @@ export class HomeComponent implements OnInit {
   fileSelected : File;
   content : string= "Choose a File";
   excelJsonObj : Object;
+ 
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
   ngOnInit() {    
   }
@@ -62,6 +64,35 @@ export class HomeComponent implements OnInit {
         //saving the data via setter and getter
         this.service.set_storage(this.excelJsonObj);
         console.log("this is before setter",this.excelJsonObj)
+    }
+  }
+
+  mysubmit()
+  {
+    var color_header = document.forms["calander"]["head"].value;
+    var color_body = document.forms["calander"]["nominate-type"].value;
+    
+    var x = document.forms["calander"]["mn"].value;
+    var y = document.forms["calander"]["yr"].value;
+    if(x == "" && y == "")
+    {
+      alert("Please fill the Month and Year  !!");
+    }
+    else if(x == "")
+    {
+      alert("Please enter the Month  !!");
+    }
+    else if(y == "")
+    {
+     alert("Please enter the Year  !!");
+    }  
+    else
+    {
+      this.service.set_month(x);
+      this.service.set_year(y);
+      this.service.set_color_header(color_header);
+      this.service.set_color_body(color_body);
+      this.router.navigate(['/welcome']);
     }
   }
 

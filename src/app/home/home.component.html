@@ -14,9 +14,56 @@
             <br><br>
           </div>
         </div>
-
-        <form method="post" enctype="multipart/form-data">
+        <br>
+        <form method="post" name="calander" enctype="multipart/form-data" class="was-validated">
           <input id="fileupload" type="file" (change)="onFileSelected($event)" hidden="hidden" #fileInput/>
+          
+          <div class="row">
+            <div class="col dates">
+              <input placeholder="Enter Month"
+                name="mn"
+                class="form-control"
+                type="text"
+                [(ngModel)]="month"
+                #monthcontrol="ngModel"
+                autocomplete="off"
+                required>
+                <div class="valid-feedback input-valid">Valid.</div>
+                <div *ngIf="monthcontrol.invalid && (monthcontrol.dirty || monthcontrol.touched)">
+                    <div *ngIf="monthcontrol.errors.required" class="error-input">Month is required.</div>
+                </div>
+
+            </div>
+
+            <div class="col dates">
+              <input placeholder="Enter Year"
+                name="yr"
+                class="form-control"
+                type="text"
+                [(ngModel)]="year"
+                #yearcontrol="ngModel"
+                autocomplete="off"
+                required>
+                <div class="valid-feedback input-valid">Valid.</div>
+                <div *ngIf="yearcontrol.invalid && (yearcontrol.dirty || yearcontrol.touched)">
+                    <div *ngIf="yearcontrol.errors.required" class="error-input">Year is required.</div>
+                </div>
+            </div>
+          </div>
+
+          <br><br>
+
+          <div class="row">
+            <div class="col">
+                Select color for Header: <input type="color" name="head" value="#FFA600">
+            </div>
+            <div class="col">
+                Select color for rows: <input type="color" name="nominate-type" value="#963D22">
+            </div>
+          </div>
+
+          <br><br>
+
           <div class="row">
             <div class="col-xl-4 offset-xl-2 col-lg-4 offset-lg-2">
             
@@ -33,7 +80,7 @@
         <div class="row">
             <div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2">
 
-                <button type="button" id="submit" routerLink = '/welcome'> Submit </button>            
+                <button type="button" id="submit" (click)="mysubmit()"> Submit </button>            
   
             </div>
         </div>

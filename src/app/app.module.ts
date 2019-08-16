@@ -8,6 +8,7 @@ import { DataService } from './data.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
   imports: [
     BrowserModule,
     BsDatepickerModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -13,9 +13,9 @@
   <div class="row" *ngIf = "condition_open">
     <div class="col" style="background-color: #f1f1f1;">
       <div class="row ">
-        <div class="col type">
+        <div class="col type" id="color-type1">
             Open Nomination Based
-        </div>
+        </div> 
       </div>
       <div class="row">
         <div class ="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-12" *ngFor="let item of open_nomination">
@@ -32,13 +32,10 @@
             
             <div class = "card-body">
               
-              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-              <div class="row date-place">
-                <div class="col-5">
-                  Date: {{item.Date}} 
-                </div>
-                <div class="col-7">
-                    Location: {{item.Location}}
+              <img class="card-img-top card_img" src="{{item.Link}}"><br>
+              <div class="row">
+                <div class="offset-3 col-5 date">
+                  {{item.Date}} 
                 </div>
               </div>
   
@@ -56,15 +53,10 @@
                 
               <div class="row">
                 <div class="col time">
-                    Duration : {{item.Hours}} hrs
+                    Time : {{item.Hours}} hrs
                 </div>
-              </div>
-              
-              <div class="row">
-                <div class="col">
-                  <a href={{item.Link}}>
-                    <button type="button" class="link">Read More</button>
-                  </a>
+                <div class="col" style="justify-content: center">
+                  <button type="button" class="place">{{item.Location}}</button>
                 </div>
               </div>
   
@@ -83,7 +75,7 @@
   <div class="row" *ngIf = "condition_close">
     <div class="col" style="background-color: #f1f1f1;">
       <div class="row ">
-        <div class="col type">
+        <div class="col type" id="color-type2">
             Closed Nomination Based
         </div>
       </div>
@@ -102,15 +94,12 @@
             
             <div class = "card-body">
               
-              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-              <div class="row date-place">
-                  <div class="col-5">
-                    Date: {{item.Date}} 
-                  </div>
-                  <div class="col-7">
-                      Location: {{item.Location}}
-                  </div>
+              <img class="card-img-top card_img" src="{{item.Link}}"><br>
+              <div class="row">
+                <div class="offset-3 col-5 date">
+                  {{item.Date}} 
                 </div>
+              </div>
   
               <div class="contents">
                 {{item['Training Objective']}}
@@ -126,17 +115,12 @@
                 
                 <div class="row">
                   <div class="col time">
-                      Duration : {{item.Hours}} hrs
+                      Time : {{item.Hours}} hrs
+                  </div>
+                  <div class="col" style="justify-content: center">
+                    <button type="button" class="place">{{item.Location}}</button>
                   </div>
                 </div>
-              
-              <div class="row">
-                <div class="col">
-                  <a href={{item.Link}}>
-                    <button type="button" class="link">Read More</button>
-                  </a>
-                </div>
-              </div>
   
             </div>
           
@@ -153,7 +137,7 @@
   <div class="row" *ngIf = "condition_digital">
     <div class="col" style="background-color: #f1f1f1;">
       <div class="row ">
-        <div class="col type">
+        <div class="col type" id="color-type3">
             Digital
         </div>
       </div>
@@ -172,13 +156,10 @@
             
             <div class = "card-body">
               
-              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-              <div class="row date-place">
-                  <div class="col-5">
-                    Date: {{item.Date}} 
-                  </div>
-                  <div class="col-7">
-                      Location: {{item.Location}}
+              <img class="card-img-top card_img" src="{{item.Link}}"><br>
+              <div class="row">
+                  <div class="offset-3 col-5 date">
+                    {{item.Date}} 
                   </div>
                 </div>
   
@@ -194,19 +175,14 @@
   
             <div class="card-footer foot">
                 
-              <div class="row">
-                <div class="col time">
-                    Duration : {{item.Hours}} hrs
+                <div class="row">
+                  <div class="col time">
+                      Time : {{item.Hours}} hrs
+                  </div>
+                  <div class="col" style="justify-content: center">
+                    <button type="button" class="place">{{item.Location}}</button>
+                  </div>
                 </div>
-              </div>
-              
-              <div class="row">
-                <div class="col">
-                  <a href={{item.Link}}>
-                    <button type="button" class="link">Read More</button>
-                  </a>
-                </div>
-              </div>
   
             </div>
           
@@ -223,7 +199,7 @@
   <div class="row" *ngIf = "condition_invitation">
     <div class="col" style="background-color: #f1f1f1;">
       <div class="row ">
-        <div class="col type">
+        <div class="col type" id="color-type4">
             Invitation Based
         </div>
       </div>
@@ -242,15 +218,12 @@
             
             <div class = "card-body">
               
-              <img class="card-img-top card_img" src="../../assets/Images/IOT.png"><br>
-              <div class="row date-place">
-                  <div class="col-5">
-                    Date: {{item.Date}} 
-                  </div>
-                  <div class="col-7">
-                      Location: {{item.Location}}
-                  </div>
+              <img class="card-img-top card_img" src="{{item.Link}}"><br>
+              <div class="row">
+                <div class="offset-3 col-5 date">
+                  {{item.Date}} 
                 </div>
+              </div>
   
               <div class="contents">
                 {{item['Training Objective']}}
@@ -263,21 +236,16 @@
             </div>
   
             <div class="card-footer foot">
-              
-              <div class="row">
-                <div class="col time">
-                    Duration : {{item.Hours}} hrs
+                
+                <div class="row">
+                  <div class="col time">
+                      Time : {{item.Hours}} hrs
+                  </div>
+                  <div class="col" style="justify-content: center">
+                    <button type="button" class="place">{{item.Location}}</button>
+                  </div>
                 </div>
-              </div>
-              
-              <div class="row">
-                <div class="col">
-                  <a href={{item.Link}}>
-                      <button type="button" class="link">Read More</button>
-                    </a>
-                </div>
-              </div>
-
+  
             </div>
           
           </div>

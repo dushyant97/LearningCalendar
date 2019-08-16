@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : DataService) { }
+
+  color:string="";
 
   ngOnInit() {
+    this.color = this.service.get_color_header();
   }
 
+  ngAfterViewInit()
+  {
+    document.getElementById("color-footer").style.backgroundColor=this.color;
+
+  }
 }
