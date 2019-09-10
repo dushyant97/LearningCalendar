@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   fileSelected : File;
   content : string= "Choose a File";
   excelJsonObj : Object;
- 
+  month=""
+  year=""
 
   constructor(private service: DataService, private router: Router) { }
 
