@@ -12,3 +12,6 @@ Dependencies:<br>
 
 Reference for SheetJS:<br>
 https://github.com/dushyant97/js-xlsx
+
+Reference for Layout:<br>
+https://drive.google.com/file/d/1CSHnOvi0om9Pk-IgtKAXP-3kj_sqIJXt/view?usp=sharing
